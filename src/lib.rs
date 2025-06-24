@@ -1,4 +1,3 @@
-
 // Implement extract_tx_version function below
 pub fn extract_tx_version(raw_tx_hex: &str) -> Result<u32, String> {
     //get the first 8 characters of the hex string
@@ -11,13 +10,13 @@ pub fn extract_tx_version(raw_tx_hex: &str) -> Result<u32, String> {
     let version_hex = &raw_tx_hex[0..8];
 
     let mut reversed = String::new();
-     for i in (0..8).step_by(2).rev() {
-         reversed.push_str(&version_hex[i..i + 2]);
-     }
-     
-   
+    for i in (0..8).step_by(2).rev() {
+        reversed.push_str(&version_hex[i..i + 2]);
+    }
+
     let result = u32::from_str_radix(&reversed, 16)
-        .map_err(|_| "Hex decode error".to_string()).unwrap();
-   println!("Transaction version: {}", result);
-   Ok(result)
+        .map_err(|_| "Hex decode error".to_string())
+        .unwrap();
+    println!("Transaction version: {}", result);
+    Ok(result)
 }
