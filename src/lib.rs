@@ -20,5 +20,4 @@ pub fn extract_tx_version(raw_tx_hex: &str) -> Result<u32, String> {
         .map_err(|_| "Hex decode error".to_string()).unwrap();
    println!("Transaction version: {}", result);
    Ok(result)
-  
 }
